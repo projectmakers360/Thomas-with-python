@@ -40,13 +40,17 @@ def panda_table(x,y,col = 1):
 
 ################################################################################################################################
 # display the graph
-def displot(x,y,*args,x_lim = False,y_lim = False,grd = True):
+def displot(x,y,*args,x_lim = False,y_lim = False,grd = True,sct = True):
+    if sct:
+        plt.scatter(x,y)
     plt.plot(x,y)
     if grd:
         plt.grid()
     plt.axhline(linewidth=1, color='black')
     plt.axvline(linewidth=1, color='black')
     for i in np.arange(0,len(args),2):
+        if sct:
+            plt.scatter(args[i],args[i+1])
         plt.plot(args[i],args[i+1])
     
     if x_lim:
