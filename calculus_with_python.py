@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+# below line is for get full data frame
 pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 # list of x and y 
