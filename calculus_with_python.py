@@ -1,3 +1,4 @@
+  
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -42,7 +43,7 @@ def panda_table(x,y,col = 1):
 
 ################################################################################################################################
 # display the graph
-def displot(x,y,*args,x_lim = False,y_lim = False,grd = True,sct = True):
+def displot(x,y,*args,x_lim = None,y_lim = None,grd = True,sct = True):
     if sct:
         plt.scatter(x,y)
     plt.plot(x,y)
@@ -55,47 +56,25 @@ def displot(x,y,*args,x_lim = False,y_lim = False,grd = True,sct = True):
             plt.scatter(args[i],args[i+1])
         plt.plot(args[i],args[i+1])
     
-    if x_lim:
-        try :
-            l = int(input("x_left side limit = "))
-            r = int(input("x_right side limit = "))
-            plt.xlim(l,r)
-        except:
-            print("tata")
-    if y_lim:
-        try :
-            l = int(input("y_down side limit = "))
-            r = int(input("y_up side limit = "))
-            plt.ylim(l,r)
-        except:
-            print("tata")
+    if x_lim != None:
+        plt.xlim(x_lim[0],x_lim[1])
+        
+    if y_lim != None:
+        plt.ylim(y_lim[0],y_lim[1])
             
     plt.xlabel("\n<--------------------- X -------------------->")
     plt.ylabel("<--------------------- Y -------------------->\n")
     plt.show()
-
+    
 ################################################################################################################################
 # user input for find m and b (y = mx + b)
-def linear_eq(x1,y1,x2,y2,inc_x = True,inc_y = False):
+def linear_eq(x1,y1,x2,y2,inc_x = None,inc_y = None):
     
-    # find m (Slop)
     m = (y2 - y1)/(x2 - x1)
-    print("\ny = mx + b,\twhere\n\t\tm = ",m)
     
-    # x and y intercept
-    # find b
-    if inc_x:
-        x = int(input("value of x :"))
-        b = (-m)*(x)
-        print(f"\nFor given X - INTERCEPT({x},0) :")                
-        print(f"\ny = {m}x + b,\twhere\n\t\tb = ",b)
-        print(f"\n\n\t-------------------\n=>\t| y = {m}x + {b} |\n\t-------------------")        
-    
-    elif inc_y:
-        y = int(input("value of y :"))
-        b = y
-        print(f"\nFor given Y - INTERCEPT(0,{y}) :")        
-        print(f"\ny = {m}x + b,\twhere\n\t\tb = ",b)
-        print(f"\n\n\t-------------------\n=>\t| y = {m}x + {b} |\n\t-------------------")        
+    if inc_x != None:
+        b = (-m)*(inc_x)    
+    elif inc_y!= None:
+        b = inc_y      
     
     return m,b
