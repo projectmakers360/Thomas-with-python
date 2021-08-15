@@ -1,4 +1,3 @@
-  
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -78,3 +77,26 @@ def linear_eq(x1,y1,x2,y2,inc_x = None,inc_y = None):
         b = inc_y      
     
     return m,b
+
+################################################################################################################################
+
+def indf(f,*x,srt = False):
+    if srt:
+        x = sorted(x)
+    
+    ins = set()
+    dins = set()
+    nins = set()
+    
+    for i in range(1,len(x)):
+          
+        if x[i-1]<x[i]:
+            
+            if f(x[i-1]) < f(x[i]):
+                ins.add(x[i-1])   
+            elif f(x[i-1])>f(x[i]):
+                dins.add(x[i-1])
+            else:
+                nins.add(x[i-1])
+    
+    return ins,dins,nins
