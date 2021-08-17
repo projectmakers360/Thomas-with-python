@@ -175,8 +175,11 @@ def rng(l,srt = False):
         f_lst.append(l[k])
         
         for i in range(k,len(l)-1):
-            a = l[i] + 1
-            
+            try:
+                a = l[i] + 1
+            except:
+                a = l[i]
+                
             if a == l[i+1] :
                 lis_1.append(a)
                 
