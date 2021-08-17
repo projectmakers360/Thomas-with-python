@@ -158,6 +158,8 @@ def eo(f,x):
 
 # range function
 
+# warning : This function is not proper
+
 def rng(l,srt = False):
     
     if srt:
@@ -175,10 +177,9 @@ def rng(l,srt = False):
         f_lst.append(l[k])
         
         for i in range(k,len(l)-1):
-            try:
-                a = l[i] + 1
-            except:
-                continue
+            
+            a = l[i] + 1
+
                 
             if a == l[i+1] :
                 lis_1.append(a)
