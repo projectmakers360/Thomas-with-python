@@ -83,7 +83,7 @@ def linear_eq(x1,y1,x2,y2,inc_x = None,inc_y = None):
 
 ################################################################################################################################
 
-#Increasing and Decreasing Function
+# Increasing and Decreasing Function
 # f(x1) < f(x2)
 # f(x1) > f(x2)
 
