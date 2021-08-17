@@ -100,3 +100,25 @@ def indf(f,*x,srt = False):
                 nins.add(x[i-1])
     
     return ins,dins,nins
+
+################################################################################################################################
+
+# Even or Odd Functions
+
+# f(x) = f(-x):  (even)
+# f(x) = -f(-x):  (odd)
+def eo(f,x):
+    
+    x = list(set(abs(x)))
+    a = set()
+    for i in x:
+        if i == 0:
+            continue
+        if f(i) == f(-i):
+            a.add('Even')
+        elif f(i) == -f(-i):
+            a.add("Odd")
+        else:
+            a.add("Nether Even nor Odd")
+        
+    return list(a)[0] 
