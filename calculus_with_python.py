@@ -43,7 +43,8 @@ def panda_table(x,y,col = 1):
 
 ################################################################################################################################
 
-# display the graph
+# display the graph for any number of point/pairs of (x,y)
+ 
 def displot(x,y,*args,x_lim = None,y_lim = None,grd = True,sct = True):
     if sct:
         plt.scatter(x,y)
