@@ -88,26 +88,49 @@ def linear_eq(x1,y1,x2,y2,inc_x = None,inc_y = None):
 # f(x1) < f(x2)
 # f(x1) > f(x2)
 
-def indf(f,*x,srt = False):
+def indf(f,x,srt = False):
+    
     if srt:
         x = sorted(x)
-    
+        
     ins = set()
     dins = set()
     nins = set()
     
     for i in range(1,len(x)):
-          
         if x[i-1]<x[i]:
-            
-            if f(x[i-1]) < f(x[i]):
-                ins.add(x[i-1])   
-            elif f(x[i-1])>f(x[i]):
-                dins.add(x[i-1])
-            else:
-                nins.add(x[i-1])
+            try:                
+                if f(x[i-1]) < f(x[i]):
+                    ins.add(x[i-1]) 
+                    ins.add(x[i])  
+                elif f(x[i-1])>f(x[i]):
+                    dins.add(x[i-1])
+                    dins.add(x[i])  
+                else:
+                    nins.add(x[i])  
+                    nins.add(x[i-1])
+            except:
+                pass
+    ins = list(ins)
+    dins = list(dins)
+    nins = list(nins)
     
-    return ins,dins,nins
+    try:
+        rng_ins = rng(ins,True)
+    except:
+        rng_ins = (0,0)
+    
+    try:
+        rng_dins = rng(dins,True)
+    except:
+        rng_dins = (0,0)
+        
+    try:
+        rng_nins = rng(nins,True)
+    except:
+        rng_nins = (0,0)
+        
+    return rng_ins,rng_dins,rng_nins
 
 ################################################################################################################################
 
@@ -134,33 +157,40 @@ def eo(f,x):
 ################################################################################################################################
 
 # range function
+
 def rng(l,srt = False):
+    
     if srt:
         l = sorted(l)
+    
     lis_1= []
     lis_1.append(l[0])
     indx = 0
     f_lst = []
-
+    
     for j in range(len(l)):
         
         k = indx + 1
         lis_1.append(l[k])
         f_lst.append(l[k])
+        
         for i in range(k,len(l)-1):
             a = l[i] + 1
+            
             if a == l[i+1] :
                 lis_1.append(a)
+                
                 if i == len(l)-2:
                     f_lst[0] = l[0]
-                    f_lst.append(l[len(l)-1])
                     
+                    f_lst.append(l[len(l)-1])
                     final_intervals = list()
+                    
                     for i in range(0,len(f_lst),2):
                         intervle = (f_lst[i],f_lst[i+1])
                         final_intervals.append(intervle)
                     
-                    return lis_1,final_intervals
+                    return final_intervals
             else:
                 indx = i
                 f_lst.append(l[indx])
