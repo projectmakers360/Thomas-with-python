@@ -178,7 +178,7 @@ def rng(l,srt = False):
             try:
                 a = l[i] + 1
             except:
-                pass
+                continue
                 
             if a == l[i+1] :
                 lis_1.append(a)
