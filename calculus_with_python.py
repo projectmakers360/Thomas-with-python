@@ -15,6 +15,7 @@ def lmkr(f,start = -100,end = 100,step = 1):
     return x,y
 
 ################################################################################################################################
+
 # table of x and y
 def panda_table(x,y,col = 1):
     a = {}
@@ -41,6 +42,7 @@ def panda_table(x,y,col = 1):
     return data
 
 ################################################################################################################################
+
 # display the graph
 def displot(x,y,*args,x_lim = None,y_lim = None,grd = True,sct = True):
     if sct:
@@ -66,6 +68,7 @@ def displot(x,y,*args,x_lim = None,y_lim = None,grd = True,sct = True):
     plt.show()
     
 ################################################################################################################################
+
 # user input for find m and b (y = mx + b)
 def linear_eq(x1,y1,x2,y2,inc_x = None,inc_y = None):
     
@@ -128,6 +131,7 @@ def eo(f,x):
     return list(a)[0] 
 
 ################################################################################################################################
+
 # range function
 def rng(l,srt = False):
     if srt:
