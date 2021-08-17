@@ -140,7 +140,7 @@ def indf(f,x,srt = False):
 # f(x) = -f(-x):  (odd)
 def eo(f,x):
     
-    x = list(set(abs(x)))
+    # x = list(set(abs(x)))
     a = set()
     for i in x:
         if i == 0:
